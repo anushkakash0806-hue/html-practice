@@ -1,89 +1,541 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>My Portfolio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anushka Kashyap | Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+    scroll-behavior:smooth;
+}
+
+body{
+    background:linear-gradient(-45deg,#0f172a,#1e293b,#312e81,#0f172a);
+    background-size:400% 400%;
+    animation:bgAnimation 12s ease infinite;
+    color:white;
+}
+
+@keyframes bgAnimation{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+::-webkit-scrollbar{
+    width:10px;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#38bdf8;
+    border-radius:20px;
+}
+
+nav{
+    position:fixed;
+    top:0;
+    width:100%;
+    background:rgba(15,23,42,0.85);
+    backdrop-filter:blur(15px);
+    z-index:1000;
+    padding:18px 10%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:1.5rem;
+    font-weight:700;
+    color:#38bdf8;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:25px;
+}
+
+nav a{
+    text-decoration:none;
+    color:white;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:#38bdf8;
+}
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:100px 20px;
+}
+
+.hero h1{
+    font-size:5rem;
+    font-weight:700;
+    background:linear-gradient(
+    90deg,
+    #38bdf8,
+    #a855f7,
+    #ec4899,
+    #38bdf8);
+    background-size:300%;
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    animation:textGlow 6s linear infinite;
+}
+
+@keyframes textGlow{
+    from{
+        background-position:0%;
+    }
+    to{
+        background-position:300%;
+    }
+}
+
+.hero h2{
+    margin-top:15px;
+    color:#cbd5e1;
+    font-weight:400;
+}
+
+.hero p{
+    margin-top:20px;
+    max-width:800px;
+    color:#d1d5db;
+    line-height:1.8;
+}
+
+.btn-group{
+    margin-top:30px;
+}
+
+.btn{
+    display:inline-block;
+    text-decoration:none;
+    padding:14px 28px;
+    border-radius:50px;
+    margin:10px;
+    color:white;
+    font-weight:600;
+    background:linear-gradient(45deg,#38bdf8,#8b5cf6);
+    transition:.4s;
+}
+
+.btn:hover{
+    transform:translateY(-5px);
+}
+
+.section{
+    width:90%;
+    max-width:1200px;
+    margin:30px auto;
+    padding:35px;
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(15px);
+    border-radius:25px;
+}
+
+.section h2{
+    color:#38bdf8;
+    margin-bottom:20px;
+    font-size:2rem;
+}
+
+.skills{
+    display:flex;
+    flex-wrap:wrap;
+    gap:15px;
+}
+
+.skill{
+    background:rgba(255,255,255,0.1);
+    padding:12px 22px;
+    border-radius:30px;
+    transition:.3s;
+}
+
+.skill:hover{
+    background:#38bdf8;
+    color:black;
+    transform:translateY(-5px);
+}
+
+.projects{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:rgba(255,255,255,0.08);
+    padding:25px;
+    border-radius:20px;
+    transition:.4s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 0 20px rgba(56,189,248,.5);
+}
+
+.card h3{
+    color:#38bdf8;
+    margin-bottom:10px;
+}
+
+.timeline{
+    border-left:3px solid #38bdf8;
+    padding-left:20px;
+}
+
+.timeline-item{
+    margin-bottom:20px;
+}
+
+.timeline-item h3{
+    color:#38bdf8;
+}
+
+footer{
+    text-align:center;
+    padding:30px;
+    color:#cbd5e1;
+}
+
+@media(max-width:768px){
+
+.hero h1{
+    font-size:3rem;
+}
+
+nav{
+    flex-direction:column;
+    gap:15px;
+}
+
+nav ul{
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+}
+
+</style>
 </head>
+
 <body>
-    <h1>Hello GitHub!</h1>
+
+<nav>
+
+<div class="logo">Anushka</div>
+
+<ul>
+<li><a href="#about">About</a></li>
+<li><a href="#education">Education</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#achievements">Achievements</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+
+</nav>
+
+<section class="hero">
 
 <h1>Anushka Kashyap</h1>
-<p>B.Tech CSE Student | Full Stack Developer | DevOps Enthusiast</p>
 
-<hr>
+<h2>B.Tech CSE | 4th Year (7th Semester)</h2>
 
-<h2>About Me</h2>
 <p>
-I am a B.Tech Computer Science student <br> Passionate about Web Development,
-DevOps, and Software Engineering. <br> I enjoy building real-world projects,
-learning new technologies, and continuously improving my technical skills.
+Aspiring Full Stack Developer • DevOps Enthusiast • Passionate about
+Web Development, Linux, Git, GitHub and building real-world projects.
 </p>
 
-<h2>Education</h2>
-<ul>
-    <li>B.Tech in Computer Science and Engineering</li>
-    <li>Expected Graduation: 2027</li>
-</ul>
+<div class="btn-group">
 
-<h2>Skills</h2>
-<ul>
-    <li>HTML</li>
-    <li>CSS</li>
-    <li>JavaScript</li>
-    <li>Python</li>
-    <li>Git & GitHub</li>
-    <li>Linux</li>
-</ul>
+<a href="mailto:anushkakash0806@gmail.com" class="btn">
+Email Me
+</a>
+
+<a href="https://github.com/anushkakash0806-hue" target="_blank" class="btn">
+GitHub
+</a>
+
+</div>
+
+</section>
+
+<section class="section" id="about">
+
+<h2>About Me</h2>
+
+<p>
+I am Anushka Kashyap, a B.Tech Computer Science and Engineering student
+at Rama University. I am passionate about Web Development, DevOps,
+Software Engineering and continuously learning modern technologies.
+
+I enjoy creating practical projects, exploring Linux systems,
+working with Git & GitHub and improving my problem-solving skills.
+My goal is to build scalable applications and become a skilled
+Full Stack Developer.
+</p>
+
+</section>
+
+<section class="section" id="education">
+
+<h2>Education</h2>
+
+<div class="timeline">
+
+<div class="timeline-item">
+<h3>B.Tech in Computer Science & Engineering</h3>
+<p>Rama University</p>
+<p>Current: 4th Year | 7th Semester</p>
+<p>Expected Graduation: 2027</p>
+</div>
+
+<div class="timeline-item">
+<h3>Senior Secondary Education (Class XII)</h3>
+<p>CBSE Board</p>
+<p>Percentage: 89.9%</p>
+</div>
+
+<div class="timeline-item">
+<h3>Secondary Education (Class X)</h3>
+<p>CBSE Board</p>
+<p>Percentage: 90%</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="section" id="skills">
+
+<h2>Technical Skills</h2>
+
+<div class="skills">
+
+<div class="skill">HTML</div>
+<div class="skill">CSS</div>
+<div class="skill">JavaScript</div>
+<div class="skill">Python</div>
+<div class="skill">Git</div>
+<div class="skill">GitHub</div>
+<div class="skill">Linux</div>
+<div class="skill">DevOps</div>
+
+</div>
+
+</section>
+<section class="section" id="projects">
 
 <h2>Projects</h2>
 
-<h3>To-Do List Web Application</h3>
+<div class="projects">
+
+<div class="card">
+<h3>🧠 Brain Tumor Report Analyzer (Featured Project)</h3>
+
 <p>
-A task management application with reminder and notification features
-to help users organize their daily activities efficiently.
+Worked on INTEL AI Hackathon @ IEEE INDICON 2024
+under the guidance of Mr. Sanjay (Assistant Professor).
 </p>
 
-<h3>Personal Portfolio Website</h3>
 <p>
-A responsive portfolio website showcasing my skills, projects,
-and achievements.
-</p>
-<h3> Brain Tumor report Analyzer</h3>
-<p>
-    Worked on INTEL AI Hackathon @ IEEE
-INDICON 2024 under the guidance of Mr. Sanjay
-(Assistant Professor).</p>
-<p>
-    Developed an AI-powered Brain Tumor Report
-Analyzer that evaluates uploaded medical
-reports and generates detailed. </p>
- <p>
-Utilized machine learning techniques and
-medical data preprocessing to achieve 80%
-model accuracy.
+Developed an AI-powered Brain Tumor Report Analyzer
+that evaluates uploaded medical reports and generates
+detailed analysis for better understanding.
 </p>
 
-<h2>Achievements</h2>
-<ul>
-    <li>Completed multiple web development projects.</li>
-    <li>Actively learning Full Stack Development and DevOps.</li>
-    <li>Maintaining technical projects on GitHub.</li>
-    <li>Certification course from INFOSYS</li>
-</ul>
+<p>
+Utilized Machine Learning techniques and medical data
+preprocessing methods to improve performance and accuracy.
+</p>
 
-<h2>Hobbies</h2>
-<ul>
-    <li>Coding</li>
-    <li>Learning New Technologies</li>
-    <li>Problem Solving</li>
-    <li>Reading Tech Blogs</li>
-</ul>
+<p>
+Achieved approximately 80% model accuracy during testing.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>✅ To-Do List Web Application</h3>
+
+<p>
+A task management web application designed to help users
+organize daily activities efficiently.
+</p>
+
+<p>
+Features include task creation, management, reminders,
+and notification support.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>🌐 Personal Portfolio Website</h3>
+
+<p>
+A responsive portfolio website showcasing skills,
+projects, achievements and technical journey.
+</p>
+
+<p>
+Hosted using GitHub Pages and continuously updated
+as new projects and skills are added.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section" id="achievements">
+
+<h2>Achievements & Certifications</h2>
+
+<div class="timeline">
+
+<div class="timeline-item">
+<h3>🏆 Intel AI Hackathon Participant</h3>
+<p>
+Participated in IEEE INDICON 2024 and contributed to
+the Brain Tumor Report Analyzer project.
+</p>
+</div>
+
+<div class="timeline-item">
+<h3>📜 Infosys Certification</h3>
+<p>
+Successfully completed a certification program from Infosys.
+</p>
+</div>
+
+<div class="timeline-item">
+<h3>💻 Web Development Projects</h3>
+<p>
+Built and maintained multiple web development projects
+using HTML, CSS and modern development practices.
+</p>
+</div>
+
+<div class="timeline-item">
+<h3>🚀 GitHub Project Management</h3>
+<p>
+Actively maintain projects using Git, GitHub and
+version control workflows.
+</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h2>Learning Journey</h2>
+
+<p>
+Currently focusing on improving Full Stack Development
+and DevOps skills.
+</p>
+
+<br>
+
+<div class="skills">
+
+<div class="skill">Full Stack Development</div>
+<div class="skill">DevOps</div>
+<div class="skill">Linux Administration</div>
+<div class="skill">Git Workflows</div>
+<div class="skill">Problem Solving</div>
+<div class="skill">Software Engineering</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h2>Hobbies & Interests</h2>
+
+<div class="skills">
+
+<div class="skill">Coding</div>
+<div class="skill">Learning New Technologies</div>
+<div class="skill">Problem Solving</div>
+<div class="skill">Reading Tech Blogs</div>
+<div class="skill">Exploring Open Source</div>
+
+</div>
+
+</section>
+
+<section class="section" id="contact">
 
 <h2>Contact Me</h2>
-<p>Email: anushkakash0806@gmail.com</p>
-<p>GitHub: anushkakash0806-hue</p>
 
-<hr>
+<p><strong>📧 Email:</strong> anushkakash0806@gmail.com</p>
 
-<p>Thank you for visiting my portfolio!</p>
+<br>
+
+<p>
+<strong>💻 GitHub:</strong>
+<a href="https://github.com/anushkakash0806-hue"
+target="_blank"
+style="color:#38bdf8;">
+anushkakash0806-hue
+</a>
+</p>
+
+<br>
+
+<p>
+I am always open to learning opportunities,
+collaborations and exciting technology discussions.
+</p>
+
+</section>
+
+<footer>
+
+<h3>✨ Thank You For Visiting My Portfolio ✨</h3>
+
+<br>
+
+<p>
+Designed and Developed by Anushka Kashyap
+</p>
+
+<br>
+
+<p>
+© 2026 All Rights Reserved
+</p>
+
+</footer>
+
 </body>
 </html>
